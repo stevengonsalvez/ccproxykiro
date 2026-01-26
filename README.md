@@ -20,12 +20,6 @@ A Go CLI tool for managing Kiro authentication tokens and providing an Anthropic
         claude                 kiro2cc server
 ```
 
-### Claude Code
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/25f02026-f316-4a27-831c-6bc28cb03fca" />
-
-### Cherry Studio
-<img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/9bb24690-1e96-4a85-a7fc-bf7cdee95c09" />
-
 ## Features
 
 - Read Kiro auth tokens from `~/.aws/sso/cache/kiro-auth-token.json`
@@ -37,7 +31,7 @@ A Go CLI tool for managing Kiro authentication tokens and providing an Anthropic
 
 ### From Releases
 
-Download the pre-built binary for your platform from the [Releases](https://github.com/bestK/kiro2cc/releases) page.
+Download the pre-built binary for your platform from the [Releases](https://github.com/stevengonsalvez/ccproxykiro/releases) page.
 
 ### Build from Source
 
