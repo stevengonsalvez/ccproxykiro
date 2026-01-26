@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bestk/kiro2cc/parser"
+	"github.com/stevengonsalvez/ccproxykiro/parser"
 )
 
 // TokenData represents the structure of the token file
@@ -310,7 +310,7 @@ func main() {
 		fmt.Println("  kiro2cc export  - Export environment variables")
 		fmt.Println("  kiro2cc claude  - Configure Claude Code (region bypass)")
 		fmt.Println("  kiro2cc server [port] - Start Anthropic API proxy server")
-		fmt.Println("  author https://github.com/bestK/kiro2cc")
+		fmt.Println("  https://github.com/stevengonsalvez/ccproxykiro")
 		os.Exit(1)
 	}
 
