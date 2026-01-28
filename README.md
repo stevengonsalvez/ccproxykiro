@@ -1,4 +1,4 @@
-# kiro2cc - Kiro Auth Token Manager
+# ccproxykiro - Kiro Auth Token Manager
 
 A Go CLI tool for managing Kiro authentication tokens and providing an Anthropic API proxy to AWS CodeWhisperer.
 
@@ -8,16 +8,16 @@ A Go CLI tool for managing Kiro authentication tokens and providing an Anthropic
           │                           │
           │                           │
           ▼                           │
-    kiro2cc claude                    │
+    ccproxykiro claude                    │
           │                           │
           ▼                           │
-    kiro2cc export                    │
+    ccproxykiro export                    │
           │                           │
           ▼                           │
-    kiro2cc server                    │
+    ccproxykiro server                    │
           │                           │
           ▼                           ▼
-        claude                 kiro2cc server
+        claude                 ccproxykiro server
 ```
 
 ## Features
@@ -36,7 +36,7 @@ Download the pre-built binary for your platform from the [Releases](https://gith
 ### Build from Source
 
 ```bash
-go build -o kiro2cc main.go
+go build -o ccproxykiro main.go
 ```
 
 ## Automated Builds
@@ -51,44 +51,44 @@ This project uses GitHub Actions for automated builds:
 ### 1. Read Token Information
 
 ```bash
-./kiro2cc read
+./ccproxykiro read
 ```
 
 ### 2. Refresh Token
 
 ```bash
-./kiro2cc refresh
+./ccproxykiro refresh
 ```
 
 ### 3. Export Environment Variables
 
 ```bash
 # Linux/macOS
-eval $(./kiro2cc export)
+eval $(./ccproxykiro export)
 
 # Windows (CMD)
-./kiro2cc export
+./ccproxykiro export
 # Then copy and paste the output commands
 
 # Windows (PowerShell)
-./kiro2cc export
+./ccproxykiro export
 # Then copy and paste the output commands
 ```
 
 ### 4. Configure Claude Code (Region Bypass)
 
 ```bash
-./kiro2cc claude
+./ccproxykiro claude
 ```
 
 ### 5. Start Anthropic API Proxy Server
 
 ```bash
 # Use default port 8080
-./kiro2cc server
+./ccproxykiro server
 
 # Use custom port
-./kiro2cc server 9000
+./ccproxykiro server 9000
 ```
 
 ## Proxy Server Usage

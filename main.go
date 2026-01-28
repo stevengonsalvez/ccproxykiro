@@ -305,11 +305,11 @@ func buildCodeWhispererRequest(anthropicReq AnthropicRequest) CodeWhispererReque
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage:")
-		fmt.Println("  kiro2cc read    - Read and display token")
-		fmt.Println("  kiro2cc refresh - Refresh token")
-		fmt.Println("  kiro2cc export  - Export environment variables")
-		fmt.Println("  kiro2cc claude  - Configure Claude Code (region bypass)")
-		fmt.Println("  kiro2cc server [port] - Start Anthropic API proxy server")
+		fmt.Println("  ccproxykiro read    - Read and display token")
+		fmt.Println("  ccproxykiro refresh - Refresh token")
+		fmt.Println("  ccproxykiro export  - Export environment variables")
+		fmt.Println("  ccproxykiro claude  - Configure Claude Code (region bypass)")
+		fmt.Println("  ccproxykiro server [port] - Start Anthropic API proxy server")
 		fmt.Println("  https://github.com/stevengonsalvez/ccproxykiro")
 		os.Exit(1)
 	}
@@ -506,7 +506,7 @@ func setClaude() {
 	}
 
 	jsonData["hasCompletedOnboarding"] = true
-	jsonData["kiro2cc"] = true
+	jsonData["ccproxykiro"] = true
 
 	newJson, err := json.MarshalIndent(jsonData, "", "  ")
 
