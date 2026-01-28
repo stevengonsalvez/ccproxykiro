@@ -91,6 +91,61 @@ eval $(./ccproxykiro export)
 ./ccproxykiro server 9000
 ```
 
+## Claude Code Setup
+
+To use this proxy with Claude Code CLI:
+
+### Step 1: Install Settings
+
+Copy the example settings file to your Claude config directory:
+
+```bash
+# Create the directory if it doesn't exist
+mkdir -p ~/.claude
+
+# Copy the settings file
+cp claude-settings.example.json ~/.claude/settings.json
+```
+
+Or manually create `~/.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "dummy-token",
+    "ANTHROPIC_BASE_URL": "http://localhost:8080"
+  }
+}
+```
+
+### Step 2: Configure Claude Code
+
+```bash
+./ccproxykiro claude
+```
+
+This sets `hasCompletedOnboarding: true` in `~/.claude.json` to skip login prompts.
+
+### Step 3: Start and Use
+
+```bash
+# Terminal 1: Start the proxy
+./ccproxykiro server
+
+# Terminal 2: Run Claude Code
+claude
+```
+
+### Alternative: Environment Variables
+
+Instead of the settings file, you can use environment variables:
+
+```bash
+export ANTHROPIC_BASE_URL="http://localhost:8080"
+export ANTHROPIC_AUTH_TOKEN="dummy-token"
+claude
+```
+
 ## Proxy Server Usage
 
 After starting the server, you can use it as follows:

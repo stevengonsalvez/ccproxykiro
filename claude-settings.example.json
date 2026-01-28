@@ -1,0 +1,6 @@
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "dummy-token",
+    "ANTHROPIC_BASE_URL": "http://localhost:8080"
+  }
+}
