@@ -111,12 +111,17 @@ Or manually create `~/.claude/settings.json`:
 
 ```json
 {
+  "model": "claude-sonnet-4-20250514",
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "dummy-token",
     "ANTHROPIC_BASE_URL": "http://localhost:8080"
   }
 }
 ```
+
+**Important:** You must specify a supported model. Available models:
+- `claude-sonnet-4-20250514` (recommended)
+- `claude-3-5-haiku-20241022`
 
 ### Step 2: Configure Claude Code
 
