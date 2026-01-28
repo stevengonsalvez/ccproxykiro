@@ -573,8 +573,8 @@ func startServer(port string) {
 	// Create router
 	mux := http.NewServeMux()
 
-	// Register all endpoints
-	mux.HandleFunc("/v1/messages", logMiddleware(func(w http.ResponseWriter, r *http.Request) {
+	// Handler for /v1/messages
+	messagesHandler := logMiddleware(func(w http.ResponseWriter, r *http.Request) {
 		// Only handle POST requests
 		if r.Method != http.MethodPost {
 			fmt.Printf("Error: Unsupported request method\n")
@@ -636,7 +636,11 @@ func startServer(port string) {
 
 		// Handle non-streaming request
 		handleNonStreamRequest(w, anthropicReq, token.AccessToken)
-	}))
+	})
+
+	// Register endpoints (with and without trailing slash)
+	mux.HandleFunc("/v1/messages", messagesHandler)
+	mux.HandleFunc("/v1/messages/", messagesHandler)
 
 	// Add health check endpoint
 	mux.HandleFunc("/health", logMiddleware(func(w http.ResponseWriter, r *http.Request) {
