@@ -742,7 +742,10 @@ func handleStreamRequest(w http.ResponseWriter, anthropicReq AnthropicRequest, a
 		return
 	}
 
-	// os.WriteFile(messageId+"response.raw", respBody, 0644)
+	fmt.Printf("CodeWhisperer response size: %d bytes\n", len(respBody))
+	if len(respBody) < 500 {
+		fmt.Printf("CodeWhisperer response (small): %s\n", string(respBody))
+	}
 
 	// Use the new CodeWhisperer parser
 	events := parser.ParseEvents(respBody)

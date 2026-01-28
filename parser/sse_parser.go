@@ -26,6 +26,12 @@ func ParseEvents(resp []byte) []SSEEvent {
 
 	events := []SSEEvent{}
 
+	// Check if response is an error (not binary)
+	if len(resp) > 0 && (resp[0] == '{' || resp[0] == '<') {
+		log.Printf("Response is not binary format. First 500 bytes: %s", string(resp[:min(500, len(resp))]))
+		return events
+	}
+
 	r := bytes.NewReader(resp)
 	for {
 		if r.Len() < 12 {
@@ -41,7 +47,8 @@ func ParseEvents(resp []byte) []SSEEvent {
 		}
 
 		if int(totalLen) > r.Len()+8 {
-			log.Println("Frame length invalid")
+			log.Printf("Frame length invalid: totalLen=%d, remaining=%d, headerLen=%d", totalLen, r.Len()+8, headerLen)
+			log.Printf("Raw response (first 200 bytes): %x", resp[:min(200, len(resp))])
 			break
 		}
 
